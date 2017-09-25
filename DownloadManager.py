@@ -21,8 +21,8 @@ def clear():
 
 current_csv_files = []
 
-directory = 'C:\pythonFiles\DownloadManager\\'
-directory_dump = 'C:\pythonFiles\DownloadManager\dump\\'
+directory = os.getcwd() + '\\'
+directory_dump = directory + '\dump\\'
 
 
 def downloader():

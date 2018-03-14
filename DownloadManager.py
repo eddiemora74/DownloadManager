@@ -23,6 +23,7 @@ current_csv_files = []
 directory = os.getcwd() + '\\'
 directory_dump = os.getcwd() + '\dump\\'
 
+
 def downloader():
     # Instantiate variable that will be used for user to select file.
     cf = 0

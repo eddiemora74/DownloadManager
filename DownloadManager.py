@@ -4,7 +4,16 @@ import shutil
 import os
 from time import sleep
 from PIL import Image
-from Helpers.osi import space, clear
+from CleanFile import clean_csv
+
+
+def space():
+    return ""
+
+
+def clear():
+    return os.system('cls')
+
 
 # List created to hold all CSV files in current directory
 current_csv_files = []
@@ -40,6 +49,11 @@ def downloader():
     ccf = current_csv_files[cf]
 
     space()
+
+    # Clean File
+    print("Removing special characters...")
+    clean_csv(ccf)
+    print("Done!")
 
     # This will be the name of the zipped folder.
     # If left blank, it will use the name of the CSV file.

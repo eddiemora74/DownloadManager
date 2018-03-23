@@ -52,9 +52,11 @@ def downloader():
     space()
 
     # Clean File
-    print("Removing special characters...")
+    print("Removing special characters... ", end="", flush=True)
     clean_csv(ccf)
     print("Done!")
+
+    space()
 
     # This will be the name of the zipped folder.
     # If left blank, it will use the name of the CSV file.
@@ -101,7 +103,7 @@ def downloader():
             while req == '':
                 if tries < 3:
                     try:
-                        print("Downloading " + name + "...")
+                        print("Downloading " + name + "... ", end="", flush=True)
                         req = requests.get(url)
                     except:
                         # If the download fails, it will timeout for 5 seconds to let it rest, then try again.
@@ -112,6 +114,7 @@ def downloader():
                         sleep(5)
                     else:
                         # Open the file that was created and write the content from the request to the file.
+                        print("Done!")
                         x = open(filename, 'wb')
                         x.write(req.content)
                         x.close()
@@ -143,7 +146,7 @@ def downloader():
                     sleep(1)
 
     # Make a zipped version of the folder with all the files.
-    print("Compressing folder...")
+    print("Compressing folder...", end="", flush=True)
     shutil.make_archive(folder_name, 'zip', directory_folder_name)
 
     # Delete the unzipped version.
